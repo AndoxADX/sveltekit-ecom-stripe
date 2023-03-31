@@ -1,23 +1,25 @@
 <script lang="ts">
-	import ProductCard from "$lib/productCard.svelte";
-	import { each } from "svelte/internal";
-	const products : Product[] = [
+	import ProductCard from '$lib/productCard.svelte';
+	import { each } from 'svelte/internal';
+	import { get } from "svelte/store";
+	import { cartItems } from "../cart";
+	const products: Product[] = [
 		{
-			id: "1",
-			name: "Coffee",
-			price: "5.00",
+			id: '1',
+			name: 'Coffee',
+			price: '5.00'
 		},
 		{
-			id: "2",
-			name: "Sunglasses",
-			price: "10.00",
+			id: '2',
+			name: 'Sunglasses',
+			price: '10.00'
 		},
 		{
-			id: "3",
-			name: "Mattress",
-			price: "15",
+			id: '3',
+			name: 'Mattress',
+			price: '15'
 		}
-	]
+	];
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
@@ -26,7 +28,7 @@
 			<h1>Sveltekit</h1>
 		</div>
 		{#each products as product}
-			<ProductCard product={product}/>
+			<ProductCard product = {product} />
 		{/each}
 		<div class="col-span-3">
 			<button class="btn variant-filled-primary">Checkout with StripeAPI</button>
